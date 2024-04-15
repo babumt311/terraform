@@ -13,6 +13,15 @@ provider "aws" {
   region = "ap-southeast-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "vpcbucketgun1"
+    key    = "terraform.tfstate"
+    region = "ap-southeast-1"
+  }
+}
+
+
 # Public Bucket
 
 resource "aws_s3_bucket" "guna_bucket" {
@@ -64,7 +73,7 @@ terraform {
     key    = "terraform.tfstate"
     region = "ap-southeast-1"
   }
-}*/
+}
 
 data "terraform_remote_state" "network" {
   backend = "s3"
@@ -73,7 +82,7 @@ data "terraform_remote_state" "network" {
     key    = "terraform.tfstate"
     region = "ap-southeast-1"
   }
-}
+}*/
 
 
 
