@@ -16,7 +16,7 @@ provider "aws" {
 # Public Bucket
 
 resource "aws_s3_bucket" "guna_bucket" {
-  bucket = "vpcbucketgun1"
+  bucket = "vpcbucketgun123456"
 }
 
 resource "aws_s3_bucket_ownership_controls" "owner" {
@@ -50,9 +50,9 @@ resource "aws_s3_bucket_acl" "acl_access" {
 
 terraform {
   backend "s3" {
-    bucket = "vpcbucketgun1"
+    bucket = "vpcbucketgun123456"
     key    = "path/to/my/key"
-    region = "us-east-1"
+    region = "ap-southeast-1"
   }
 }
 
