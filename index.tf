@@ -192,6 +192,16 @@ resource "aws_internet_gateway" "gw" {
   
 }
 
+####################
+resource "aws_security_group" "public_securitygroup" {
+  name        = "public_securitygroup"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+  vpc_id      = aws_vpc.project.id
+tags = {
+    Name = "public security group"
+  }
+}
+########################
 
 
 #public route table
