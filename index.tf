@@ -16,7 +16,7 @@ provider "aws" {
 # Public Bucket
 
 resource "aws_s3_bucket" "guna_bucket" {
-  bucket = "vpcbucketgun123456"
+  bucket = "vpcbucketgun1"
 }
 
 resource "aws_s3_bucket_ownership_controls" "owner" {
@@ -45,13 +45,23 @@ resource "aws_s3_bucket_acl" "acl_access" {
   acl    = "public-read"
 }
 
+/*resource "aws_dynamodb_table" "terraform_locks" {
+  name         = "vpcbucketgun123456"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+        attribute {
+         name = "LockID"
+         type = "S"
+      }
+}*/
+
 
 #Backup
 
 terraform {
   backend "s3" {
-    bucket = "vpcbucketgun123456"
-    key    = "path/to/my/key"
+    bucket = "vpcbucketgun1"
+    key    = "terraform.tfstate"
     region = "ap-southeast-1"
   }
 }
