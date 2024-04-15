@@ -53,13 +53,22 @@ resource "aws_s3_bucket_acl" "acl_access" {
          name = "LockID"
          type = "S"
       }
-}*/
+}
 
 
 #Backup
 
 terraform {
   backend "s3" {
+    bucket = "vpcbucketgun1"
+    key    = "terraform.tfstate"
+    region = "ap-southeast-1"
+  }
+}*/
+
+data "terraform_remote_state" "network" {
+  backend = "s3"
+  config = {
     bucket = "vpcbucketgun1"
     key    = "terraform.tfstate"
     region = "ap-southeast-1"
