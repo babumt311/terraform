@@ -297,14 +297,4 @@ resource "aws_nat_gateway" "nat" {
 }
 
 
-#Backup
-
-#terraform {
-  backend "s3" {
-    bucket = "vpcbucketgun1"
-    key    = "path/to/my/key"
-    region = "us-east-1"
-  }
-}
-
 
